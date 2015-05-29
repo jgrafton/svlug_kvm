@@ -18,8 +18,8 @@ installation
 security
 --------
 
-### kvm group
-### polkit
+* kvm group
+* polkit
 
 
 networking
