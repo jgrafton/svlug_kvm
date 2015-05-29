@@ -1,26 +1,35 @@
-Using QEMU & KVM on CentOS7
-
-=== Introduction
-
-
-
-=== Installation
+getting started with qemu & kvm on centos7
+==========================================
 
 
 
 
-=== Setup Security
-= kvm group
-= polkit
-
-
-== Setup Networking
+introduction
+------------
 
 
 
+installation
+------------
 
-== Download ISO & Install VM
 
+
+
+security
+--------
+
+### kvm group
+### polkit
+
+
+networking
+----------
+
+
+
+
+install a vm
+------------
 
 
 
