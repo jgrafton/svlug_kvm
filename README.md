@@ -1,7 +1,5 @@
-getting started with qemu & kvm on centos7
+getting started with qemu & kvm on linux
 ==========================================
-
-
 
 
 ### introduction
@@ -9,10 +7,43 @@ getting started with qemu & kvm on centos7
 
 QEMU can make use of KVM when running a target architecture that is the same as the host architecture. For instance, when running qemu-system-x86 on an x86 compatible processor, you can take advantage of the KVM acceleration - giving you benefit for your host and your guest system." - from wiki.qemu.org
 
+What exactly are QEMU, KVM, and libvirt?
 
-### installation
+QEMU provides the environment for emulating a computer, such as virtual disks,
+network interfaces, video console, etc
+
+KVM is the software that does the actual magic of virtualization by
+communicating with CPU
+
+libvirt is the glue that binds it all together 
+
+### kvm / qemu installation
 Debian and Ubuntu are my preferred workstation Linux distro's and RHEL / CentOS
-for server distro's.
+for server distro's.  For this talk, I'll focus on Ubuntu Linux.
+
+## Ubuntu
+sudo apt-get install cpu-checker
+sudo apt-get install qemu-kvm libvirt-bin
+sudo apt-get install virt-manager
+
+## CentOS
+sudo yum install kvm virt-manager libvirt virt-install qemu-kvm xauth dejavu-lgc-sans-fonts
+
+
+### networking
+
+Bridged networking vs Isolated network
+
+setup a host bridge on your primary interface
+
+have to replace ethernet interface with bridge
+
+create_bridge.sh in this repository
+
+
+## Ubuntu
+
+## CentOS
 
 
 ### security
@@ -21,8 +52,6 @@ for server distro's.
 * polkit
 
 
-### networking
-
 
 
 
@@ -30,4 +59,7 @@ for server distro's.
 
 
 
+### links
+* \[1\] [Ubuntu Libvirt Documentation](https://help.ubuntu.com/lts/serverguide/libvirt.html)
+* \[2\] [Install and use CentOS 7 or RHEL 7 as KVM virtualization host](http://jensd.be/?p=207)
 
