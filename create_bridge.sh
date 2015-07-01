@@ -13,6 +13,9 @@ if [ -z $1 ]; then
   exit 1
 fi
 
+# interface name of host bridge to create
+BRIDGE=virbr1
+
 # does this system support NetworkManager?
 NMCLI=`which nmcli`
 if [ -z $NMCLI ]; then
@@ -36,7 +39,7 @@ else
 fi
 
 # is a bridge already setup on this system?
-RESULT=`$NMCLI -t -f name con show --active | grep "^b" | head -1`
+RESULT=`$NMCLI -t -f name con show --active | grep "^${BRIDGE}" | head -1`
 if [ -z $RESULT ]; then
   echo "No bridges found."
 else
@@ -84,16 +87,16 @@ fi
 $NMCLI con del $ETHERNET_INTERFACE
 
 # add bridge
-$NMCLI con add type bridge con-name bridge0 ifname br0 
-$NMCLI con add type bridge-slave ifname $ETHERNET_INTERFACE master bridge0 
+$NMCLI con add type bridge con-name $BRIDGE ifname $BRIDGE
+$NMCLI con add type bridge-slave ifname $ETHERNET_INTERFACE master $BRIDGE
 
 # using a static IP address
 if [[ "$IPV4_METHOD" != "auto" ]]; then
-  $NMCLI con mod bridge0 ipv4.method manual ipv4.address $IPV4_ADDRESS ipv4.gateway $IPV4_GATEWAY ipv4.dns $IPV4_DNS
-  $NMCLI con down bridge0
+  $NMCLI con mod $BRIDGE ipv4.method manual ipv4.address $IPV4_ADDRESS ipv4.gateway $IPV4_GATEWAY ipv4.dns $IPV4_DNS
+  $NMCLI con down $BRIDGE
   $NMCLI con down "bridge-slave-${ETHERNET_INTERFACE}"
   $NMCLI con up "bridge-slave-${ETHERNET_INTERFACE}"
-  $NMCLI con up bridge0
+  $NMCLI con up $BRIDGE
 fi
 
 echo "Bridge creation complete."
