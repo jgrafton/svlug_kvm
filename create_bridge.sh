@@ -3,7 +3,7 @@
 # usage
 if [ -z $1 ]; then
   echo "create_bridge creates a local ethernet bridge for a KVM hypervisor."
-  echo "Requires a NetworkManager based system (>= CentOS 7.x or Ubuntu 15.x)"
+  echo "Requires a NetworkManager based system (>= CentOS 7.x)"
   echo " "
   echo "SYNTAX:  create_bridge.sh interface"
   echo " "
