@@ -1,8 +1,8 @@
-Using QEMU & Kernel Virtual Machine (KVM) on CentOS 7
+Using QEMU & Kekrnel Virtual Machine (KVM) on CentOS 7
 =====================================================
 
 
-### introduction
+### Introduction
 "KVM (Kernel Virtual Machine) is a Linux kernel module that allows a user space program to utilize the hardware virtualization features of various processors.  Today, it supports recent Intel and AMD processors (x86 and x86_64), PPC 440, PPC 970, S/390, ARM (Cortex A15), and MIPS32 processors.
 
 QEMU can make use of KVM when running a target architecture that is the same as the host architecture. For instance, when running qemu-system-x86 on an x86 compatible processor, you can take advantage of the KVM acceleration - giving you benefit for your host and your guest system." - from wiki.qemu.org
@@ -18,9 +18,9 @@ communicating with CPU
 libvirt is the glue that binds it all together.  It provides the API to create,
 destroy, and manage virtual machines.
 
-### kvm / qemu installation
-Debian and Ubuntu are my preferred workstation Linux distro's and RHEL / CentOS
-for server distro's.
+### KVM / QEMU Installation
+While CentOS is my preferred server linux distribution, I generally prefer
+Debian or Ubuntu on the desktop.  Most of these procedures apply to both.
 
 ## CentOS
     sudo yum install kvm virt-manager libvirt virt-install qemu-kvm xauth dejavu-lgc-sans-fonts
@@ -28,7 +28,7 @@ for server distro's.
 ## Ubuntu
     sudo apt-get install cpu-checker qemu-kvm libvirt-bin virt-manager
 
-### networking
+### Networking
 
 Bridged networking vs Isolated network
 
@@ -39,7 +39,7 @@ The script create_bridge.sh in this repository will do this for you
 automatically in CentOS Linux.
 
 
-### security
+### Security
 
 If you want your local user to have permissions to create and destroy VMs, add
 the user to the kvm local group and add the policy kit file
