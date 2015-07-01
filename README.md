@@ -1,5 +1,5 @@
-getting started with qemu & kvm on linux
-==========================================
+Using QEMU & Kernel Virtual Machine (KVM) on CentOS 7
+=====================================================
 
 
 ### introduction
