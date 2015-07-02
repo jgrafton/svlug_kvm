@@ -1,4 +1,4 @@
-Using QEMU & Kekrnel Virtual Machine (KVM) on CentOS 7
+Using QEMU & Kernel Virtual Machine (KVM) on CentOS 7
 =====================================================
 
 
